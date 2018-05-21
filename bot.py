@@ -3,6 +3,7 @@
 import telebot
 from telebot import types 
 from telegram import ParseMode
+from flask import Flask
 import pywapi
 
 import random
@@ -17,6 +18,10 @@ random_message1 = lambda: random.choice(otmazki1)
 random_message3 = lambda: random.choice(otmazki3)
 random_url = lambda: random.choice(url)
 bot = telebot.TeleBot("549489621:AAHjOvAtZMo-eOvedtl4roEzyXCDHla4h54")
+app = Flask(_name_)
+@app.route('/')
+def hello():
+    return 'Привет'
    
 @bot.message_handler(commands=['weather'])
 def handle_start(message):
